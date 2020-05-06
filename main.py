@@ -9,7 +9,7 @@ from discord.ext.commands import Bot
 #create token.md and paste bot token into.
 token = read_token()
 
-#ID of user who is send by bot when time has come
+#ID of user who will be sent by bot when time has come
 ID = int(open('myAccountID.md','r').readlines()[0])
 
 client = Bot(command_prefix='!', description='My shedule.')
