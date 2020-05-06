@@ -1,4 +1,4 @@
-!help, !h
+!help
 		Show this instruction.
 
 !list, !l
