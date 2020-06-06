@@ -6,10 +6,8 @@ from discord.ext.commands import Bot
 
 
 #### Run
-#create token.md and paste bot token into.
 token = read_token()
 
-#ID of user who will be sent by bot when time has come
 ID = int(open('myAccountID.md','r').readlines()[0])
 
 client = Bot(command_prefix='!', description='My shedule.')
@@ -25,7 +23,7 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    s = '!help,!h,!list,!l,!add,!a,!remove,!rm,!setup,!s'.split(',')
+    s = '!help,!h,!list,!l,!add,!a,!remove,!rm,!setup,!s,!time'.split(',')
     if message.content[0] == '!' and message.content.split(' ')[0] not in s:
         await message.channel.send('```Type !help for more details.```')
         
@@ -132,7 +130,11 @@ async def setup(ctx, *, arg):
         await ctx.send("```Order is not available.```")
     else:
         await ctx.send("```Done.```")
-
+        
+@client.command(name = 'time', aliases = ['t'])
+async def time(ctx):
+    """Show the current time."""
+    await ctx.send((datetime.datetime.now() + datetime.timedelta(hours=+7)).strftime("%a %d/%m %H:%M"))
 
 async def update_stats():
     await client.wait_until_ready()
@@ -144,14 +146,13 @@ async def update_stats():
 
         for i, c in enumerate(s):
             on_time = datetime.datetime.now() + datetime.timedelta(hours=+7) + datetime.timedelta(minutes = +c[2])
-            
             if on_time.strftime("%d/%m %H:%M") == c[0] + ' ' + c[1]:
                 for j in range(15):
                     user = client.get_user(ID)
                     await user.send("```{}```".format(show[i]))
                     await asyncio.sleep(1)
 
-                update_schedule(i, show[i], on_time) 
+                update_schedule(i, show[i], on_time)
 
         await asyncio.sleep(1)
 
