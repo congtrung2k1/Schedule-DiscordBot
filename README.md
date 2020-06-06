@@ -40,7 +40,7 @@ Note: UTC+7 in used.
         
         !rm <order> / <all>
 
-!setup, !s	<order> [-w <week>] [-m <month>] [-r <alarm_before>] [-n <note>]
+!setup, !s	<order> [-w <week>] [-m <month>] [-b <alarm_before>] [-n <note>]
 
 		Change optional setting for ordered schedule.
         
@@ -54,7 +54,7 @@ Note: UTC+7 in used.
             -n note             note for this shedule
 
         Example:
-            !s 0 -w 1 -m 2 -r 3 -n abcxyz
+            !s 0 -w 1 -m 2 -b 3 -n abcxyz
 	    
 !time
 
