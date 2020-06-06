@@ -1,8 +1,14 @@
-!help
-		Show this instruction.
+Usage: Put your bot's token into token.md, your ID into myAccountID.md.
 
-!list, !l
-		Show schedule.
+Note: UTC+7 in used.
+
+!help	
+
+		Show this instructions.
+
+!list, !l	
+
+		Show schedules.
 
 !add, !a	<content> <month>/<day> <hour>:<minute> [-w <week>] [-m <month>] [-r <alarm_before>] [-n <note>]
 
@@ -36,7 +42,7 @@
 
 !setup, !s	<order> [-w <week>] [-m <month>] [-r <alarm_before>] [-n <note>]
 
-		SChange optional setting for ordered schedule.
+		Change optional setting for ordered schedule.
         
         Compulsory:
             order               Which is the order need to repair?
@@ -49,4 +55,8 @@
 
         Example:
             !s 0 -w 1 -m 2 -r 3 -n abcxyz
+	    
+!time
+
+		Show current time.
 
